@@ -7,4 +7,8 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    = yield
+    %div.row
+      %div.col-md-12
+        = render 'layouts/menu'
+      %div.col-md-12.main-frame
+        = yield

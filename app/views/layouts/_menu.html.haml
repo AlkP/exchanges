@@ -1,0 +1,16 @@
+%nav{ class: 'navbar navbar-default navbar-fixed-top', role: 'navigation' }
+  %div{ class: 'navbar-header'}
+    %button.some{ type: 'button', class: 'navbar-toggle', 'data-toggle': 'collapse', 'data-target': '#bs-example-navbar-collapse-1' }
+      %span{ class: 'sr-only' } Toggle navigation
+      %span.icon-bar
+      %span.icon-bar
+      %span.icon-bar
+    %a.navbar-brand.some{ href: root_path }
+      Валютные пары
+  %div{ class: 'collapse navbar-collapse', id: 'bs-example-navbar-collapse-1'}
+    %ul.nav.navbar-nav
+      %li
+        = link_to 'Текущий курс', rate_path('xxxxxx')
+      %li
+        = link_to 'Архивный курс', rate_path('xxxxxx')
+
