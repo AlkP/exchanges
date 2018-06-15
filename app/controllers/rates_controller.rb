@@ -2,6 +2,16 @@ class RatesController < ApplicationController
   before_action :check_current_rate
   before_action :set_rsymbols
 
+  def show
+    id = (params[:id] == 'xxxxxx' ? @rsymbols.first : params[:id])
+    @rate = Rate.find_by_rsymbol(id)
+  end
+
+  def archive
+    @date = params[:date]
+    @rates = Rate.where(rdate: @date)
+  end
+
   private
 
   def set_rsymbols

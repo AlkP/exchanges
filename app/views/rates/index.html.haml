@@ -1,0 +1,9 @@
+%table.table.table-striped.dictionaries-table
+  %thead
+    %tr
+      %th
+  %tbody
+    - @rsymbols.each do |rs|
+      %tr
+        %td
+          = link_to rs, rate_path(rs)

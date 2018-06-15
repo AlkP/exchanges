@@ -1,0 +1,63 @@
+
+
+%div.col-sm-4
+  -#%select{ onChange: 'if(this.selectedIndex!=0) self.location=this.options[this.selectedIndex].value', class: 'form-control' }
+  %select.select_tag.form-control{ onChange: 'redirect();' }
+    - @rsymbols.each do |rs|
+      %option{ value: '/rates/' + rs }
+        = rs
+%br
+%br
+= form_for @rate, html: { class: 'form-horizontal', role: 'form' } do |f|
+
+  %div.form-group
+    %label.col-sm-4.control-label
+      rsymbol
+    %div.col-sm-8
+      = f.text_field :rsymbol, class: 'form-control'
+  %div.form-group
+    %label.col-sm-4.control-label
+      ask
+    %div.col-sm-8
+      = f.text_field :ask, class: 'form-control'
+  %div.form-group
+    %label.col-sm-4.control-label
+      bid
+    %div.col-sm-8
+      = f.text_field :bid, class: 'form-control'
+  %div.form-group
+    %label.col-sm-4.control-label
+      last
+    %div.col-sm-8
+      = f.text_field :last, class: 'form-control'
+  %div.form-group
+    %label.col-sm-4.control-label
+      open
+    %div.col-sm-8
+      = f.text_field :open, class: 'form-control'
+  %div.form-group
+    %label.col-sm-4.control-label
+      low
+    %div.col-sm-8
+      = f.text_field :low, class: 'form-control'
+  %div.form-group
+    %label.col-sm-4.control-label
+      high
+    %div.col-sm-8
+      = f.text_field :high, class: 'form-control'
+  %div.form-group
+    %label.col-sm-4.control-label
+      volume
+    %div.col-sm-8
+      = f.text_field :volume, class: 'form-control'
+  %div.form-group
+    %label.col-sm-4.control-label
+      volumeQuote
+    %div.col-sm-8
+      = f.text_field :volumeQuote, class: 'form-control'
+
+:javascript
+  function redirect() {
+    var value = $('select.select_tag option:selected').val();
+    window.location.replace(value);
+  };

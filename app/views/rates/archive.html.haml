@@ -1,0 +1,50 @@
+%input.datepicker{ type: 'date', onChange: 'redirect();', value: "#{@date}" }
+
+%table.table.table-striped.dictionaries-table
+  %thead
+    %tr
+      %th
+        rsymbol
+      %th
+        ask
+      %th
+        bid
+      %th
+        last
+      %th
+        open
+      %th
+        low
+      %th
+        high
+      %th
+        volume
+      %th
+        volumeQuote
+  %tbody
+    - @rates.each do |rate|
+      %tr
+        %td
+          = rate.rsymbol
+        %td
+          = rate.ask
+        %td
+          = rate.bid
+        %td
+          = rate.last
+        %td
+          = rate.open
+        %td
+          = rate.low
+        %td
+          = rate.high
+        %td
+          = rate.volume
+        %td
+          = rate.volumeQuote
+
+:javascript
+  function redirect() {
+    var value = $('.datepicker').val();
+    window.location.replace(value);
+  };
